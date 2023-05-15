@@ -36,7 +36,7 @@ public class PlayerDash: MonoBehaviour
             return;
         }
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (!Input.GetKeyDown(KeyCode.W) && IsGrounded())
+        if (!Input.GetKey(KeyCode.W) && IsGrounded())
         {
             doubleJump = false;
 
