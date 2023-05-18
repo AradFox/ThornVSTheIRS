@@ -61,9 +61,10 @@ public class PlayerDash: MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
+            
             if (IsGrounded() || doubleJump)
             {
-
+                GetComponent<AudioSource>().PlayOneShot(jumpSound);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 doubleJump = !doubleJump;
             }
@@ -72,7 +73,7 @@ public class PlayerDash: MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)

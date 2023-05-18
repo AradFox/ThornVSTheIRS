@@ -891,6 +891,14 @@ PrefabInstance:
       propertyPath: JumpSound
       value: 
       objectReference: {fileID: 8300000, guid: 65ab978f610d645b6b4689c45db908bc, type: 3}
+    - target: {fileID: 7615509767659531545, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
+      propertyPath: dashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bf2068e55e1a02a43bc4180589c2aa1b, type: 3}
+    - target: {fileID: 7615509767659531545, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c6b6f11212b1f34787fc3cc1e1a3f1d, type: 3}
     - target: {fileID: 7615509767659531548, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
       propertyPath: m_RootOrder
       value: 2
