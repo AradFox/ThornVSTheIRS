@@ -883,6 +883,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7615509767659531545, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
+      propertyPath: DashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ff333e6716724c0fa0153f1f470ce0c, type: 3}
+    - target: {fileID: 7615509767659531545, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 65ab978f610d645b6b4689c45db908bc, type: 3}
     - target: {fileID: 7615509767659531548, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -927,5 +935,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4392567530606021586, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 517d9f3048ea844419bb4583df4e4088, type: 3}

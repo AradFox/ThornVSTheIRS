@@ -29,6 +29,10 @@ public class PlayerDash: MonoBehaviour
     private float dashTime = 0.2f;
     private float dashCoolDown = .5f;
 
+    public AudioClip jumpSound;
+    public AudioClip dashSound;
+    public AudioClip walkSound;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -68,6 +72,7 @@ public class PlayerDash: MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)
@@ -123,6 +128,7 @@ public class PlayerDash: MonoBehaviour
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        GetComponent<AudioSource>().PlayOneShot(dashSound);
         CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         yield return new WaitForSeconds(dashTime);
         rb.gravityScale = originalGravity;
