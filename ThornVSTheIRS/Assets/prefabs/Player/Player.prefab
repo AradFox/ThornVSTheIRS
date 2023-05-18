@@ -263,7 +263,6 @@ GameObject:
   - component: {fileID: 7615509767659531548}
   - component: {fileID: 7615509767659531549}
   - component: {fileID: 7615509767659531522}
-  - component: {fileID: 4392567530606021586}
   - component: {fileID: 7615509767659531523}
   - component: {fileID: 7615509767659531520}
   - component: {fileID: 7615509767659531551}
@@ -271,7 +270,7 @@ GameObject:
   - component: {fileID: 7757516878259394038}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,26 +372,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.26013792}
   m_EdgeRadius: 0
---- !u!114 &4392567530606021586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615509767659531521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3fe46c9414a5e342a6d38ad557c9e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTimeStart: 0
-  attackPos: {fileID: 0}
-  attackMask:
-    serializedVersion: 2
-    m_Bits: 0
-  attackRange: 0
-  damage: 0
-  playerAnim: {fileID: 0}
 --- !u!70 &7615509767659531523
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -461,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80e758c001ea5342824dd6503bd4ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   jumpingPower: 10
   jumpSound: {fileID: 8300000, guid: 4c6b6f11212b1f34787fc3cc1e1a3f1d, type: 3}
   dashSound: {fileID: 8300000, guid: bf2068e55e1a02a43bc4180589c2aa1b, type: 3}
