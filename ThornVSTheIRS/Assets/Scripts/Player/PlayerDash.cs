@@ -6,6 +6,9 @@ using EZCameraShake;
 
 public class PlayerDash: MonoBehaviour
 {
+    bool movable = true;
+  
+
     float horizontal;
     public float speed = 8f;
     public float jumpingPower = 10f;
@@ -39,6 +42,8 @@ public class PlayerDash: MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,46 +53,53 @@ public class PlayerDash: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing)
+        if (movable)
         {
-            return;
-        }
-        horizontal = Input.GetAxisRaw("Horizontal");
-        if (!Input.GetKey(KeyCode.W) && IsGrounded())
-        {
-            doubleJump = false;
 
-        }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            
-            if (IsGrounded() || doubleJump)
+            if (isDashing)
             {
-                GetComponent<AudioSource>().PlayOneShot(jumpSound);
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                doubleJump = !doubleJump;
+                return;
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             
-        }
+            horizontal = Input.GetAxisRaw("Horizontal");
+            
+            if (!Input.GetKey(KeyCode.W) && IsGrounded())
+            {
+                doubleJump = false;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)
-        {
-            StartCoroutine(Dash());
-        }
+            }
 
-        WallSlide();
-        WallJump();
-       
+            if (Input.GetKeyDown(KeyCode.W))
+            {
 
-        if (!isWallJumping)
-        {
-            Flip();
+                if (IsGrounded() || doubleJump)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(jumpSound);
+                    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                    doubleJump = !doubleJump;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)
+            {
+                StartCoroutine(Dash());
+            }
+
+            WallSlide();
+            WallJump();
+
+
+            if (!isWallJumping)
+            {
+                Flip();
+            }
         }
     }
 

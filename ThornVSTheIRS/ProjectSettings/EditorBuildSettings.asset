@@ -15,9 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/DownIntoTheVents.unity
     guid: a37399c807a92bf44ae46c491e064cee
   - enabled: 1
-    path: Assets/Scenes/VentSectionOne.unity
+    path: Assets/Scenes/Vents/VentSection1.unity
     guid: 24664916e1bbcfe449461be0a8bd84c0
   - enabled: 1
-    path: Assets/Scenes/EntranceToBossRoom.unity
+    path: Assets/Scenes/Vents/VentSection2.unity
+    guid: 5eceddbab79f6ba418492c2921860776
+  - enabled: 1
+    path: Assets/Scenes/Vents/VentSection3.unity
+    guid: 2fcebbbf8b084c34d831512fd0b7686f
+  - enabled: 1
+    path: Assets/Scenes/Vents/EntranceToBossRoom.unity
     guid: f4df3c8b83e139641925d3acfece99c8
   m_configObjects: {}

@@ -10,7 +10,7 @@ public class LookAtMouse : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerSpriteRenderer = GameObject.Find("Player (1)").GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
