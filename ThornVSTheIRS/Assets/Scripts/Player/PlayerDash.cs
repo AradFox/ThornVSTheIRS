@@ -42,7 +42,7 @@ public class PlayerDash: MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
-    
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -61,31 +61,35 @@ public class PlayerDash: MonoBehaviour
             {
                 return;
             }
-            
+
+            horizontal = 0;
             horizontal = Input.GetAxisRaw("Horizontal");
             
+
+           
+
             if (!Input.GetKey(KeyCode.W) && IsGrounded())
             {
                 doubleJump = false;
-
+               
             }
 
             if (Input.GetKeyDown(KeyCode.W))
-            {
-
+            {   
+                anim.SetTrigger("DoubleJump");
                 if (IsGrounded() || doubleJump)
                 {
                     GetComponent<AudioSource>().PlayOneShot(jumpSound);
                     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                     doubleJump = !doubleJump;
+                    
                 }
             }
 
             if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-
-            }
+            }   
 
             if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)
             {
@@ -96,7 +100,7 @@ public class PlayerDash: MonoBehaviour
             WallJump();
 
 
-            if (!isWallJumping)
+            if (!isWallJumping && horizontal > 0)
             {
                 Flip();
             }
@@ -142,6 +146,7 @@ public class PlayerDash: MonoBehaviour
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
         GetComponent<AudioSource>().PlayOneShot(dashSound);
+       
         CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
         yield return new WaitForSeconds(dashTime);
         rb.gravityScale = originalGravity;
