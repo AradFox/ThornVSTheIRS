@@ -7,17 +7,21 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public TextMeshProUGUI menuDiffTxt;
-    public TextMeshProUGUI menuContTxt;
+    
 
-    public Button LevelTwoButton;
-    public Button LevelThreeButton;
+    public Button start;
+    public Button quit;
 
    
 
     public void LevelOneStart()
     {
-        SceneManager.LoadScene("LevelOneScene");
+        SceneManager.LoadScene("EscapingTheCloset");
+    }
+
+    public void TutorialStart()
+    {
+        SceneManager.LoadScene("WalkTutorial");
     }
 
     public void Quit()

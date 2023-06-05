@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: b10e30d0fa9f6a94eb42b66a54436a60
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/WalkTutorial.unity
+    guid: 3fe59ac7c8267ef489cce459609120c4
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/JumpTutorial.unity
+    guid: 0bb09bbac71d49048abd4fb4761283b3
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/DashTutorial.unity
+    guid: 07e60a7c014d67b4899e74619ed4f30a
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/WallJumpTutorial.unity
+    guid: 8e848be1eff55c84fb2dd519b626a955
+  - enabled: 1
     path: Assets/Scenes/EscapingTheCloset.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -24,6 +39,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Vents/VentSection3.unity
     guid: 2fcebbbf8b084c34d831512fd0b7686f
   - enabled: 1
+    path: Assets/Scenes/Vents/VentSection4.unity
+    guid: 6b0aa7cefb81bf541b21ea4f793345a6
+  - enabled: 1
+    path: Assets/Scenes/Vents/VentSection5.unity
+    guid: 425c20a00d7144e42b88ab5c37620d50
+  - enabled: 1
     path: Assets/Scenes/Vents/EntranceToBossRoom.unity
     guid: f4df3c8b83e139641925d3acfece99c8
+  - enabled: 1
+    path: Assets/Scenes/BossRooms/BossRoom1.unity
+    guid: c2481f76848fd424ea23c7b5ef66cd61
+  - enabled: 1
+    path: Assets/Scenes/Hallways/Hallway1.unity
+    guid: 9f36dd6d0692a3446b6a6be9e326f2dc
+  - enabled: 1
+    path: Assets/Scenes/Hallways/Hallway2.unity
+    guid: 9cb10673424d69c4cbc9f289acdd2823
+  - enabled: 1
+    path: Assets/Scenes/Hallways/Hallway3.unity
+    guid: 7f15c2bf97e6209429bb38cb798ae8e7
+  - enabled: 1
+    path: Assets/Scenes/ServerRoom.unity
+    guid: 9dcd2e488b10d7a4a897275e188a0df9
   m_configObjects: {}

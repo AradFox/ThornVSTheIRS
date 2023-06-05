@@ -5,33 +5,41 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int health;
-    public float speed;
+    
 
     private Animator anim;
-
+    public AudioClip grunt;
 
     // Start is called before the first frame update
     void Start()
     {
-     anim = GetComponent<Animator>();
-        anim.SetBool("walk", true);
+        anim = GetComponent<Animator>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+       
 
     }
 
-    public void takeDamage(int damage)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        health -= damage;
+        if (collision.gameObject.tag.Equals("Hit"))
+        {
+            Debug.Log("Kicked");
+            GetComponent<AudioSource>().PlayOneShot(grunt);
+            anim.SetBool("Death", true);
+        }
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+
+
 }

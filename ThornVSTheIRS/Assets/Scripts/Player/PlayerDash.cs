@@ -7,14 +7,15 @@ using EZCameraShake;
 public class PlayerDash: MonoBehaviour
 {
     bool movable = true;
-  
 
+  
     float horizontal;
     public float speed = 8f;
     public float jumpingPower = 10f;
     private bool isFacingRight = true;
    
     private bool doubleJump;
+    private int jumpCounter = 0;
 
     private bool isWallSliding;
     private float wallSlideSpeed = 2f;
@@ -31,6 +32,7 @@ public class PlayerDash: MonoBehaviour
     private float dashPower = 24f;
     private float dashTime = 0.2f;
     private float dashCoolDown = .5f;
+   
 
     public AudioClip jumpSound;
     public AudioClip dashSound;
@@ -43,17 +45,18 @@ public class PlayerDash: MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     public Animator anim;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (movable)
+        if (Time.timeScale == 1)
         {
 
 
@@ -62,8 +65,10 @@ public class PlayerDash: MonoBehaviour
                 return;
             }
 
-            horizontal = 0;
+            
             horizontal = Input.GetAxisRaw("Horizontal");
+            
+            Debug.Log("moving");
             
 
            
@@ -71,38 +76,75 @@ public class PlayerDash: MonoBehaviour
             if (!Input.GetKey(KeyCode.W) && IsGrounded())
             {
                 doubleJump = false;
-               
+                
             }
 
+            
             if (Input.GetKeyDown(KeyCode.W))
-            {   
-                anim.SetTrigger("DoubleJump");
+            {
+
+                //if w is pressed and is grounded or if double jump is true, the player jumps by setting the vertical velocity
                 if (IsGrounded() || doubleJump)
                 {
                     GetComponent<AudioSource>().PlayOneShot(jumpSound);
                     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                     doubleJump = !doubleJump;
+
                     
+                   
                 }
             }
+            
+            
+                anim.SetBool("doubleJump", doubleJump);
+           
+            
 
+
+            //if w is released and the player is still moving up, multiplies the vertical velocity by 0.5
+           //allows for higher jump the longer w is held down for
             if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                
             }   
 
             if (Input.GetKeyDown(KeyCode.Space) && canDash && !isWallJumping)
             {
                 StartCoroutine(Dash());
+                anim.SetBool("hit", true);
+               
+                
+                Debug.Log("Dash");
             }
+
+            if (!Input.GetKeyDown(KeyCode.Space) && canDash == false)
+            {
+                anim.SetBool("hit", false);
+            }
+
+
+
+                if (isDashing == true)
+            {
+                Debug.Log(isDashing);
+            }
+          
+                 
+            
 
             WallSlide();
             WallJump();
 
 
-            if (!isWallJumping && horizontal > 0)
+            if (!isWallJumping) 
             {
-                Flip();
+                if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+                {
+                    Flip();
+                }
+               
+                
             }
         }
     }
@@ -110,6 +152,7 @@ public class PlayerDash: MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        
     }
 
     private void FixedUpdate()
@@ -117,6 +160,7 @@ public class PlayerDash: MonoBehaviour
         if (!isWallJumping && !isDashing)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            anim.SetFloat("Speed", Mathf.Abs(horizontal));
         }
 
         if (isDashing)
@@ -124,18 +168,20 @@ public class PlayerDash: MonoBehaviour
             return;
         }
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+        anim.SetBool("Grounded", IsGrounded());
+
     }
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
+       
+        
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
 
-        }
+        
     }
 
     private IEnumerator Dash()
@@ -148,6 +194,7 @@ public class PlayerDash: MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(dashSound);
        
         CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
+        
         yield return new WaitForSeconds(dashTime);
         rb.gravityScale = originalGravity;
         isDashing = false;
@@ -185,6 +232,7 @@ public class PlayerDash: MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W) && wallJumpCounter > 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
             isWallJumping = true;
             rb.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
             wallJumpCounter = 0f;
@@ -205,4 +253,11 @@ public class PlayerDash: MonoBehaviour
         isWallJumping = false;
 
     }
+
+    public void walking()
+    {
+        GetComponent<AudioSource>().PlayOneShot(walkSound);
+    }
+
+   
 }
