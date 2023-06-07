@@ -9,6 +9,7 @@ TagManager:
   - Hit
   - BossTrigger
   - Boss
+  - Barrier
   layers:
   - Default
   - TransparentFX
