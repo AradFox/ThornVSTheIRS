@@ -77,4 +77,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vents/SecondVents/VentSection6.unity
     guid: 4ccc5b06e65e4bf4a96f5e83b4e9d2cd
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentSection7.unity
+    guid: a16d771e9002dd84e81dc4854bf6e655
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentSection8.unity
+    guid: 4faab9c7f48bc3e4bbbc739f322b3d60
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentSection9.unity
+    guid: 993976c87d9cd17428128fd52303a847
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentSection10.unity
+    guid: c39e1000daf6c3b40a9e3385ed4bbf63
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentExit.unity
+    guid: 5bb14b6d577948345961af4c67ada550
+  - enabled: 1
+    path: Assets/Scenes/Vents/SecondVents/VentExitIntoWild.unity
+    guid: 556bb181209d1014fbf051dd192367b9
+  - enabled: 1
+    path: Assets/Scenes/Menus/Credits.unity
+    guid: cbeaa3544b54bd447bd269668d688ef3
   m_configObjects: {}
