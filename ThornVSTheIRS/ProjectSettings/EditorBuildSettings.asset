@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hallways/Hallway3.unity
     guid: 7f15c2bf97e6209429bb38cb798ae8e7
   - enabled: 1
+    path: Assets/Scenes/BossRooms/ServerRoom 1.unity
+    guid: e255f3bf493cb59419807a67ada8290b
+  - enabled: 1
     path: Assets/Scenes/Hallways/Hallway4.unity
     guid: 9dcd2e488b10d7a4a897275e188a0df9
   - enabled: 1

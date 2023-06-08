@@ -29,4 +29,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
         Application.Quit();
     }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
